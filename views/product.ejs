@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<body style="padding-top: 50px;">
+    <!-- Product Details Container -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Product Image -->
+            <div class="col-md-6">
+                <img src="<%= product.image %>" alt="<%= product.name %>" class="img-fluid rounded">
+            </div>
+
+            <!-- Product Information -->
+            <div class="col-md-6">
+                <h1 class="display-4"><%= product.name %></h1>
+                <p class="lead text-muted">$<%= (product.price || 0).toFixed(2) %></p>
+                <p class="text-secondary"><%= product.description %></p>
+
+                <!-- Add to Cart Button -->
+                <button id="add-to-cart-button" class="btn btn-primary btn-lg">Add to Cart</button>
+
+                <!-- Back to Products Link -->
+                <a href="/products" class="btn btn-outline-secondary btn-lg mt-3">Back to Products</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+
+    <!-- JavaScript for Adding to Cart -->
+    <script>
+        function addToCart(productId) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Product added to cart');
+        }
+
+        document.getElementById('add-to-cart-button').onclick = function () {
+            addToCart('<%= product.id %>');
+        };
+    </script>
+</body>
+
+</html>

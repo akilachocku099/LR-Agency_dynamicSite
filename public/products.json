@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "DINO Self Priming Monobloc Motos 0.5 HP",
+        "price": 1.00,
+        "category": "motors",
+        "image": "/images/motor1.png",
+        "description": "High-pressure, eco-friendly shower head."
+    },
+    {
+        "id": 2,
+        "name": "DINO Self Priming Monobloc Motos 1 HP",
+        "price": 4.99,
+        "category": "motors",
+        "image": "/images/motor2.png",
+        "description": "High-pressure, eco-friendly shower head."
+    },
+    {
+        "id": 3,
+        "name": "Multistage Horizontal Centrifugal Booster System",
+        "price": 3.99,
+        "category": "motors",
+        "image": "/images/motor3.png",
+        "description": "High-pressure, eco-friendly shower head."
+    },
+    {
+        "id": 4,
+        "name": "Automatic Pump Controller CHP-15",
+        "price": 3.99,
+        "category": "motors",
+        "image": "/images/motor4.png",
+        "description": "High-pressure, eco-friendly shower head."
+    },
+    {
+        "id": 5,
+        "name": "Open Well Submersible Motors",
+        "price": 3.99,
+        "category": "motors",
+        "image": "/images/openwell.png",
+        "description": "C.R.I. Horizontal Openwell Submersible Pumpsets are ideally suitable for openwell / tanks where a wide fluctuation of water level occur. The pumpset works underwater and rest at the bottom of the well or tank. Hence suction and priming problem will not arise."
+    }
+]

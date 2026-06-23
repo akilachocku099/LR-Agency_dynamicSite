@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/header') %>
+<body style="padding-top: 60px;">
+    <%- include('partials/navbar') %>
+
+    <h1 class="text-center mt-4">Products</h1>
+
+    <!-- View Cart Button Below Navbar -->
+    <div class="container mt-3 d-flex justify-content-end">
+        <a href="/cart" class="btn btn-outline-primary">
+            View Cart 
+            <span class="badge bg-secondary" id="cart-count">0</span>
+        </a>
+    </div>
+
+    <!-- Products Section -->
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+            <% products.forEach(product => { %>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="<%= product.image %>" class="card-img-top" alt="<%= product.name %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= product.name %></h5>
+                            <p class="card-text">$<%= (product.price || 0).toFixed(2) %></p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button class="btn btn-primary" onclick="addToCart('<%= product.id %>')">Add to Cart</button>
+                            <a href="/services/<%= product.id %>" class="btn btn-outline-secondary mt-2">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
+
+    <script>
+        // Retrieve cart from localStorage or initialize as empty
+        function getCart() {
+            return JSON.parse(localStorage.getItem('cart')) || [];
+        }
+
+        // Save cart to localStorage
+        function saveCart(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Update the cart count badge
+        function updateCartCount() {
+            const cart = getCart();
+            const cartCount = cart.length;
+            document.getElementById('cart-count').textContent = cartCount;
+        }
+
+        // Add a product to the cart
+        function addToCart(productId) {
+            let cart = getCart();
+
+            // Avoid duplicate products in the cart
+            if (!cart.includes(productId)) {
+                cart.push(productId);
+                saveCart(cart);
+                updateCartCount();
+                alert('Product added to cart');
+            } else {
+                alert('Product is already in the cart');
+            }
+        }
+
+        // Initialize the cart count on page load
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+    </script>
+</body>
+</html>

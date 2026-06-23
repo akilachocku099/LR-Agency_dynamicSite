@@ -1,0 +1,65 @@
+<!-- checkout.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <%- include('partials/header') %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Checkout</h1>
+        
+        <form id="checkout-form" class="w-50 mx-auto">
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <textarea class="form-control" id="address" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Complete Purchase</button>
+        </form>
+    </div>
+
+    <%- include('partials/footer') %>
+
+    <script>
+        // Handle form submission
+        document.getElementById('checkout-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+
+            // Send the data to the backend or a service to send the shipping info (via email, SMS, etc.)
+
+            // Example: Show a success message and redirect to the "Thank You" page
+            alert('Your order has been placed successfully!');
+            window.location.href = '/thank-you'; // Redirect to a thank you page (create this page as needed)
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

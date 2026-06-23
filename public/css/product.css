@@ -1,0 +1,89 @@
+/* Body background color */
+body {
+    background-color: #f0f0f0; /* Light grey background for contrast */
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Products container */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 products per row */
+    gap: 20px; /* Spacing between the product tiles */
+    padding: 20px;
+    
+}
+
+/* Product card styling */
+.product-card {
+    background-color: white; /* White tiles */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for zoom effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Zoom-in effect on hover */
+.product-card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow when hovering */
+}
+
+/* Image styling inside product card */
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Product title */
+.product-card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Product price and description */
+.product-card p {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Add to cart button */
+.product-card button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Button hover effect */
+.product-card button:hover {
+    background-color: #218838;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 1024px) {
+    .products-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 products per row for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .products-container {
+        grid-template-columns: 1fr; /* 1 product per row for small screens */
+    }
+}
